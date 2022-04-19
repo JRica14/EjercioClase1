@@ -14,15 +14,17 @@ public class Main {
                 Arrays.sort(array);
                 int num = array[0];
                 cont=0;
+                System.out.print("{" );
                 for (int i = 0; i < 10; i++) {
                         if(num==array[i])
                                 cont++;
                         else{
-                                System.out.println(num + "-" + cont);
+                                System.out.print(num + "=" + cont+ ", ");
                                 num=array[i];
                                 cont=1;
                         }
                 }
-
+                System.out.print(num + "=" + cont);
+                System.out.print("}" );
         }
 }
