@@ -1,35 +1,32 @@
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Main {
 
         public static void main(String[] args) {
+                Integer[] arrayNum = new Integer[10];
                 Scanner sc = new Scanner(System.in);
-                int array[] = new int[10];
 
-                for (int i = 0; i < 10; i++) {
-                        array[i] = Integer.parseInt(sc.nextLine());
+                for (int i = 0; i < arrayNum.length; i++) {
+                        arrayNum[i] = sc.nextInt();
                 }
-                contarRepeticiones(array);
+                System.out.println(contarRepeticiones(arrayNum));
+
         }
 
+        public static String contarRepeticiones(Integer[] arrayNum) {
 
-        public static void contarRepeticiones(int[] array) {
-                int cont = 0;
-                Arrays.sort(array);
-                int num = array[0];
-                cont = 0;
-                System.out.print("{");
-                for (int i = 0; i < 10; i++) {
-                        if (num == array[i])
-                                cont++;
-                        else {
-                                System.out.print(num + "=" + cont + ", ");
-                                num = array[i];
-                                cont = 1;
+                HashMap<Integer, Integer> map = new HashMap<>();
+                for (Integer num : arrayNum) {
+                        if (map.containsKey(num)) {
+                                Integer value = map.get(num);
+                                value++;
+                                map.replace(num, value);
+                        } else {
+                                map.put(num, 1);
                         }
                 }
-                System.out.print(num + "=" + cont);
-                System.out.print("}");
+                return map.toString();
+
         }
 }
