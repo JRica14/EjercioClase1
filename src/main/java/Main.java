@@ -4,20 +4,20 @@ import java.util.Scanner;
 public class Main {
 
         public static void main(String[] args) {
-                Integer[] arrayNum = new Integer[10];
+                Integer[] array = new Integer[10];
                 Scanner sc = new Scanner(System.in);
 
-                for (int i = 0; i < arrayNum.length; i++) {
-                        arrayNum[i] = sc.nextInt();
+                for (int i = 0; i < array.length; i++) {
+                        array[i] = sc.nextInt();
                 }
-                System.out.println(contarRepeticiones(arrayNum));
+                System.out.println(contarRepeticiones(array));
 
         }
 
-        public static String contarRepeticiones(Integer[] arrayNum) {
+        public static String contarRepeticiones(Integer[] array) {
 
                 HashMap<Integer, Integer> map = new HashMap<>();
-                for (Integer num : arrayNum) {
+                for (Integer num : array) {
                         if (map.containsKey(num)) {
                                 Integer value = map.get(num);
                                 value++;
